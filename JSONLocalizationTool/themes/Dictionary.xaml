@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cm="clr-namespace:JSONLocalizationTool.WPF">
+
+    <Color x:Key="ColorControlBackgroundSelectedBlue">#0076D7</Color>
+    <Color x:Key="ColorControlBorderSelectedBlue">#005A9D</Color>
+    <Color x:Key="ColorControlFontAccentInvert">#FFFFFF</Color>
+
+    <SolidColorBrush x:Key="BrushBackgroundColor" Color="{Binding Source={x:Static cm:ColorManager.BackgroundColor}}" />
+    <SolidColorBrush x:Key="BrushPrimaryTextColor" Color="{Binding Source={x:Static cm:ColorManager.PrimaryTextColor}}" />
+    <SolidColorBrush x:Key="BrushAccentColor" Color="{Binding Source={x:Static cm:ColorManager.AccentColor}}" />
+
+    <!-- Button -->
+    <Style TargetType="Button">
+        <Setter Property="Padding" Value="10,5"/>
+    </Style>
+
+</ResourceDictionary>
