@@ -72,8 +72,11 @@
                     <Button Name="buttonRename" Click="buttonRename_Click">
                         <Image Source="Resources/icons/edit-select-all.png" Width="16" />
                     </Button>
+                    <Button Name="buttonSort" Click="buttonSort_Click">
+                        <Image Source="Resources/icons/go-bottom.png" Width="16" />
+                    </Button>
                     <Separator></Separator>
-                    <TextBox Name="textBoxSearch" TextChanged="textBoxSearch_TextChanged" Width="150"></TextBox>
+                    <TextBox Name="textBoxSearch" TextChanged="textBoxSearch_TextChanged" Width="120"></TextBox>
                 </ToolBar>
                 <ListView Grid.Row="1" Name="listView" SelectionMode="Single" SelectionChanged="listView_SelectionChanged">
                     <ListBox.ItemTemplate>

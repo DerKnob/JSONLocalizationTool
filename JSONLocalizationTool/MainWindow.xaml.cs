@@ -3,6 +3,7 @@ using JSONLocalizationTool.Manager;
 using JSONLocalizationTool.VO;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,10 +23,7 @@ namespace JSONLocalizationTool
         public MainWindow()
         {
             InitializeComponent();
-            listView.ItemsSource = LocalizationManager.GetInstance().GetCollection();
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listView.ItemsSource);
-            view.Filter = UserFilter;
+            InitListView(LocalizationManager.GetInstance().GetCollection());
 
             // get recent files
             recentFolders = Properties.Settings.Default.RecentFolders;
@@ -40,6 +38,16 @@ namespace JSONLocalizationTool
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(3);
             timer.Tick += timer_Tick;
+        }
+
+        private void InitListView(ObservableCollection<ListViewEntry> observableCollection)
+        {
+            listView.SelectedItem = null;
+
+            listView.ItemsSource = observableCollection;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listView.ItemsSource);
+            view.Filter = UserFilter;
         }
 
         /*******************************************************/
@@ -145,6 +153,13 @@ namespace JSONLocalizationTool
         private void buttonRename_Click(object sender, RoutedEventArgs e)
         {
             RenameSelected();
+        }
+
+        private void buttonSort_Click(object sender, RoutedEventArgs e)
+        {
+            LocalizationManager.GetInstance().Sort();
+
+            InitListView(LocalizationManager.GetInstance().GetCollection());
         }
 
         /*******************************************************/

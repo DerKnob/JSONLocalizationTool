@@ -56,6 +56,27 @@ namespace JSONLocalizationTool.Manager
             localizationDictionary.Clear();
         }
 
+        public void Sort()
+        {
+            // oder the listview entries
+            collection = new ObservableCollection<ListViewEntry>(collection.OrderBy(i => i.Key));
+
+            // order each lang list
+            Dictionary<string, List<LocalizationItem>> newList = new Dictionary<string, List<LocalizationItem>>();
+            foreach (KeyValuePair<string, List<LocalizationItem>> entry in localizationDictionary)
+            {
+                List<LocalizationItem> list = entry.Value;
+
+                list = new List<LocalizationItem>(list.OrderBy(i => i.key));
+
+                newList.Add(entry.Key, list);
+            }
+            localizationDictionary = newList;
+
+            // set to dirty
+            IsDirty = true;
+        }
+
         public string OpenTranslation()
         {
             // select folder

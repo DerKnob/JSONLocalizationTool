@@ -169,6 +169,8 @@
   <ItemGroup>
     <Resource Include="Resources\icons\preferences-desktop-locale.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\icons\go-bottom.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
