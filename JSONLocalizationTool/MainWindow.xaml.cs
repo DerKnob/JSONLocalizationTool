@@ -28,9 +28,7 @@ namespace JSONLocalizationTool
             // get recent files
             recentFolders = Properties.Settings.Default.RecentFolders;
             if (recentFolders == null)
-            {
                 recentFolders = new StringCollection();
-            }
 
             ReloadRecentFoldersMenutItems();
 
@@ -298,13 +296,9 @@ namespace JSONLocalizationTool
         {
             ListViewEntry entry = (ListViewEntry) listView.SelectedItem;
             if (entry != null)
-            {
                 ShowLocalization(entry.Key);
-            }
             else
-            {
                 stackPanelDetails.Visibility = Visibility.Hidden;
-            }
         }
 
         private void ShowLocalization(string key)
