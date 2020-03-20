@@ -53,8 +53,9 @@
 
         <Grid Grid.Row="2" Margin="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
@@ -89,7 +90,9 @@
                 </ListView>
             </Grid>
 
-            <ScrollViewer Grid.Column="1">
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" ResizeDirection="Columns" />
+
+            <ScrollViewer Grid.Column="2">
                 <StackPanel Name="stackPanelDetails" Visibility="Hidden">
                     <TextBlock Name="textBlockKey" FontSize="20" FontWeight="Bold"  Margin="10" />
                     <StackPanel Name="stackPanelLocalizations">
